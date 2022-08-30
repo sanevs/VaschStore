@@ -1,4 +1,4 @@
-package com.example.VaschStore.Category;
+package com.example.VaschStore.Categories;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +21,6 @@ public class CategoryController {
     public List<Category> getCategory()
     {
 
-        return categoryService.getCategory();
+        return categoryService.getCategories();
     }
 }

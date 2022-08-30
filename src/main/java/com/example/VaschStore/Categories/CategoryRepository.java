@@ -1,4 +1,4 @@
-package com.example.VaschStore.Category;
+package com.example.VaschStore.Categories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

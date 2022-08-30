@@ -1,20 +1,20 @@
-package com.example.VaschStore.Category;
+package com.example.VaschStore.Sizes;
 
 import javax.persistence.*;
 
 @Entity
-@Table
-public class Category {
+@Table(name = "size")
+public class Size {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
 
-    public Category() {
-    }
+    public Size() {    }
 
-    public Category(String name) {
+    public Size(String name) {
         this.name = name;
     }
 
@@ -36,7 +36,7 @@ public class Category {
 
     @Override
     public String toString() {
-        return "Category{" +
+        return "Size{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';

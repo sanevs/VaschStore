@@ -1,47 +1,37 @@
 package com.example.VaschStore.Products;
 
-import com.example.VaschStore.Category.Category;
+import com.example.VaschStore.Categories.Category;
+import com.example.VaschStore.Sizes.Size;
 
 import javax.persistence.*;
 
 @Entity
-@Table
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
     private Long price;
     private String image;
 
-    private Long sizeId;
+    @ManyToOne(targetEntity = Size.class)
+    private Size size;
 
     @ManyToOne(targetEntity = Category.class)
-    private Long categoryId;
 
-    public Product() {}
-    public Product(String name,
-                   Long price,
-                   String image,
-                   Long sizeId,
-                   Long categoryId) {
+    private Category category;
+
+
+    public Product() {
+    }
+
+    public Product(String name, Long price, String image, Size size, Category category) {
         this.name = name;
         this.price = price;
         this.image = image;
-        this.sizeId = sizeId;
-        this.categoryId = categoryId;
-    }
-
-    @Override
-    public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                ", image='" + image + '\'' +
-                ", sizeId=" + sizeId +
-                ", categoryId=" + categoryId +
-                '}';
+        this.size = size;
+        this.category = category;
     }
 
     public Long getId() {
@@ -76,19 +66,31 @@ public class Product {
         this.image = image;
     }
 
-    public Long getSizeId() {
-        return sizeId;
+    public Size getSize() {
+        return size;
     }
 
-    public void setSizeId(Long sizeId) {
-        this.sizeId = sizeId;
+    public void setSize(Size size) {
+        this.size = size;
     }
 
-    public Long getCategoryId() {
-        return categoryId;
+    public Category getCategory() {
+        return category;
     }
 
-    public void setCategoryId(Long categoryId) {
-        this.categoryId = categoryId;
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", image='" + image + '\'' +
+                ", size=" + size +
+                ", category=" + category +
+                '}';
     }
 }

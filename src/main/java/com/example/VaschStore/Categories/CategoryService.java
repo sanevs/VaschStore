@@ -1,4 +1,4 @@
-package com.example.VaschStore.Category;
+package com.example.VaschStore.Categories;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,7 @@ public class CategoryService {
         this.categoryRepository = categoryRepository;
     }
 
-    public List<Category> getCategory()
+    public List<Category> getCategories()
     {
         return categoryRepository.findAll();
     }
