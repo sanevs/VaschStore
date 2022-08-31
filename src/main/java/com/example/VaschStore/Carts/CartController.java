@@ -23,9 +23,9 @@ public class CartController {
         return cartService.getByPerson(person);
     }
 
-    @GetMapping(path = "all")
-    public List<Cart> getCarts()
+    @PostMapping(path = "add")
+    public void add(@RequestBody Cart cart)
     {
-        return cartService.getCarts();
+        cartService.add(cart);
     }
 }

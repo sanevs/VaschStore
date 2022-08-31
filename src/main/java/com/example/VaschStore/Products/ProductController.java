@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
+@CrossOrigin(value = "http://localhost:3000")
 @RestController
 @RequestMapping(path = "products")
 
@@ -17,14 +19,24 @@ public class ProductController {
     }
 
     @GetMapping(path = "all")
-    public List<Product> getProducts()
+    public List<Product> findAll()
     {
-        return productService.getProducts();
+        return productService.findAll();
+    }
+    @GetMapping(path = "{productId}")
+    public Optional<Product> findById(@PathVariable Long productId){
+        return productService.findById(productId);
     }
 
     @PostMapping(path = "add")
-    public void addProduct(@RequestBody Product product)
+    public void add(@RequestBody Product product)
     {
-        productService.addProduct(product);
+        productService.add(product);
+    }
+
+    @PostMapping(path = "delete/{productId}")
+    public void deleteById(@PathVariable Long productId)
+    {
+        productService.deleteById(productId);
     }
 }

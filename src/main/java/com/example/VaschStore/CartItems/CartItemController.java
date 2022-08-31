@@ -21,4 +21,22 @@ public class CartItemController {
     {
         return cartItemService.getAllByCart(cart);
     }
+
+    @PostMapping(path = "add")
+    public void add(@RequestBody CartItem cartItem)
+    {
+        cartItemService.add(cartItem);
+    }
+
+    @PostMapping(path = "delete/{cartItemId}")
+    public void deleteById(@PathVariable Long cartItemId)
+    {
+        cartItemService.deleteById(cartItemId);
+    }
+
+    @PostMapping(path = "clear")
+    public void clear()
+    {
+        cartItemService.clear();
+    }
 }

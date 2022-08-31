@@ -1,12 +1,13 @@
 package com.example.VaschStore.Sizes;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
-@RequestMapping(path = "size")
+@RequestMapping(path = "sizes")
+@CrossOrigin(value = "http://localhost:3000")
 public class SizeController {
     private final SizeService sizeService;
 
@@ -15,9 +16,9 @@ public class SizeController {
         this.sizeService = sizeService;
     }
 
-    @PostMapping(path = "add")
-    public void addSize(Size size)
+    @GetMapping(path = "all")
+    public List<Size> findAll()
     {
-        sizeService.addSize(size);
+        return sizeService.findAll();
     }
 }

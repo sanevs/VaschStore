@@ -17,6 +17,18 @@ public class CartItemService {
     }
 
     public List<CartItem> getAllByCart(Cart cart) {
-        throw new NotYetImplementedException();
+        return cartItemRepository.getAllByCart(cart);
+    }
+
+    public void add(CartItem cartItem) {
+        cartItemRepository.save(cartItem);
+    }
+
+    public void deleteById(Long cartItemId) {
+        cartItemRepository.deleteById(cartItemId);
+    }
+
+    public void clear() {
+        cartItemRepository.deleteAll();
     }
 }

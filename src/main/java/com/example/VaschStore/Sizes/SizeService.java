@@ -3,6 +3,8 @@ package com.example.VaschStore.Sizes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class SizeService {
     private final SizeRepository sizeRepository;
@@ -12,7 +14,7 @@ public class SizeService {
         this.sizeRepository = sizeRepository;
     }
 
-    public void addSize(Size size) {
-        sizeRepository.save(size);
+    public List<Size> findAll() {
+        return sizeRepository.findAll();
     }
 }
