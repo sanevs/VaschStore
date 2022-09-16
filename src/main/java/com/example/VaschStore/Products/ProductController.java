@@ -29,9 +29,9 @@ public class ProductController {
     }
 
     @PostMapping(path = "add")
-    public void add(@RequestBody Product product)
+    public Product add(@RequestBody Product product)
     {
-        productService.add(product);
+        return productService.add(product);
     }
 
     @PostMapping(path = "delete/{productId}")

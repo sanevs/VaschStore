@@ -2,6 +2,7 @@ package com.example.VaschStore.CartItems;
 
 import com.example.VaschStore.Carts.Cart;
 import com.example.VaschStore.Products.Product;
+import com.example.VaschStore.Sizes.Size;
 
 import javax.persistence.*;
 
@@ -18,14 +19,18 @@ public class CartItem {
     @ManyToOne(targetEntity = Product.class)
     private Product product;
 
+    @ManyToOne(targetEntity = Size.class)
+    private Size size;
+
     private int quantity;
 
     public CartItem() {
     }
 
-    public CartItem(Cart cart, Product product, int quantity) {
+    public CartItem(Cart cart, Product product, Size size, int quantity) {
         this.cart = cart;
         this.product = product;
+        this.size = size;
         this.quantity = quantity;
     }
 
@@ -53,6 +58,14 @@ public class CartItem {
         this.product = product;
     }
 
+    public Size getSize() {
+        return size;
+    }
+
+    public void setSize(Size size) {
+        this.size = size;
+    }
+
     public int getQuantity() {
         return quantity;
     }
@@ -65,8 +78,9 @@ public class CartItem {
     public String toString() {
         return "CartItem{" +
                 "id=" + id +
-                ", cartId=" + cart +
-                ", productId=" + product +
+                ", cart=" + cart +
+                ", product=" + product +
+                ", size=" + size +
                 ", quantity=" + quantity +
                 '}';
     }

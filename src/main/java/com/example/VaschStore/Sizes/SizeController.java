@@ -5,9 +5,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(value = "http://localhost:3000")
 @RestController
 @RequestMapping(path = "sizes")
-@CrossOrigin(value = "http://localhost:3000")
 public class SizeController {
     private final SizeService sizeService;
 

@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(value = "http://localhost:3000")
 @RestController
 @RequestMapping(path = "cartItems")
 public class CartItemController {
@@ -16,16 +17,16 @@ public class CartItemController {
         this.cartItemService = cartItemService;
     }
 
-    @GetMapping(path = "allByCart")
+    @PostMapping(path = "allByCart")
     public List<CartItem> getAllByCart(@RequestBody Cart cart)
     {
         return cartItemService.getAllByCart(cart);
     }
 
     @PostMapping(path = "add")
-    public void add(@RequestBody CartItem cartItem)
+    public CartItem add(@RequestBody CartItem cartItem)
     {
-        cartItemService.add(cartItem);
+        return cartItemService.add(cartItem);
     }
 
     @PostMapping(path = "delete/{cartItemId}")
@@ -34,9 +35,9 @@ public class CartItemController {
         cartItemService.deleteById(cartItemId);
     }
 
-    @PostMapping(path = "clear")
-    public void clear()
+    @PostMapping(path = "clearByCartId/{cartId}")
+    public void clear(@PathVariable Long cartId)
     {
-        cartItemService.clear();
+        cartItemService.clear(cartId);
     }
 }

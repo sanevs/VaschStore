@@ -1,6 +1,7 @@
 package com.example.VaschStore.Carts;
 
-import com.example.VaschStore.Persons.Person;
+
+import com.example.VaschStore.Humans.Human;
 
 import javax.persistence.*;
 
@@ -11,14 +12,14 @@ public class Cart {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(targetEntity = Person.class)
-    private Person person;
+    @OneToOne(targetEntity = Human.class)
+    private Human human;
 
     public Cart() {
     }
 
-    public Cart(Person person) {
-        this.person = person;
+    public Cart(Human human) {
+        this.human = human;
     }
 
     public Long getId() {
@@ -29,19 +30,19 @@ public class Cart {
         this.id = id;
     }
 
-    public Person getPerson() {
-        return person;
+    public Human getHuman() {
+        return human;
     }
 
-    public void setPerson(Person person) {
-        this.person = person;
+    public void setHuman(Human human) {
+        this.human = human;
     }
 
     @Override
     public String toString() {
         return "Cart{" +
                 "id=" + id +
-                ", userId=" + person +
+                ", human=" + human +
                 '}';
     }
 }

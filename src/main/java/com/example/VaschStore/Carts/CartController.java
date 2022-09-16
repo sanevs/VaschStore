@@ -1,12 +1,12 @@
 package com.example.VaschStore.Carts;
 
-import com.example.VaschStore.Persons.Person;
+import com.example.VaschStore.Humans.Human;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin(value = "http://localhost:3000")
 @RestController
 @RequestMapping(path = "carts")
 public class CartController {
@@ -17,15 +17,15 @@ public class CartController {
         this.cartService = cartService;
     }
 
-    @GetMapping(path = "getByPerson")
-    public Optional<Cart> getByPerson(@RequestBody Person person)
+    @PostMapping(path = "getByPerson")
+    public Optional<Cart> getByPerson(@RequestBody Human human)
     {
-        return cartService.getByPerson(person);
+        return cartService.getByPerson(human);
     }
 
     @PostMapping(path = "add")
-    public void add(@RequestBody Cart cart)
+    public Cart add(@RequestBody Cart cart)
     {
-        cartService.add(cart);
+        return cartService.add(cart);
     }
 }

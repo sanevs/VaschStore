@@ -20,8 +20,8 @@ public class ProductService {
         return productRepository.findAll();
     }
 
-    public void add(Product product) {
-        productRepository.save(product);
+    public Product add(Product product) {
+        return productRepository.save(product);
     }
 
     public Optional<Product> findById(Long productId) {

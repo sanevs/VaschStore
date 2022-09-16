@@ -15,22 +15,18 @@ public class Product {
     private Long price;
     private String image;
 
-    @ManyToOne(targetEntity = Size.class)
-    private Size size;
 
     @ManyToOne(targetEntity = Category.class)
 
     private Category category;
 
-
     public Product() {
     }
 
-    public Product(String name, Long price, String image, Size size, Category category) {
+    public Product(String name, Long price, String image, Category category) {
         this.name = name;
         this.price = price;
         this.image = image;
-        this.size = size;
         this.category = category;
     }
 
@@ -66,14 +62,6 @@ public class Product {
         this.image = image;
     }
 
-    public Size getSize() {
-        return size;
-    }
-
-    public void setSize(Size size) {
-        this.size = size;
-    }
-
     public Category getCategory() {
         return category;
     }
@@ -89,7 +77,6 @@ public class Product {
                 ", name='" + name + '\'' +
                 ", price=" + price +
                 ", image='" + image + '\'' +
-                ", size=" + size +
                 ", category=" + category +
                 '}';
     }

@@ -20,7 +20,6 @@ public class CategoryController {
     @GetMapping("all")
     public List<Category> getCategory()
     {
-
         return categoryService.getCategories();
     }
 }

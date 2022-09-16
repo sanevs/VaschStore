@@ -1,6 +1,6 @@
 package com.example.VaschStore.Carts;
 
-import com.example.VaschStore.Persons.Person;
+import com.example.VaschStore.Humans.Human;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,11 +15,11 @@ public class CartService {
         this.cartRepository = cartRepository;
     }
 
-    public Optional<Cart> getByPerson(Person person) {
-        return cartRepository.getByPerson(person);
+    public Optional<Cart> getByPerson(Human human) {
+        return cartRepository.getByPerson(human);
     }
 
-    public void add(Cart cart) {
-        cartRepository.save(cart);
+    public Cart add(Cart cart) {
+        return cartRepository.save(cart);
     }
 }

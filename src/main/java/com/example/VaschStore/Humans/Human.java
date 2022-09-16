@@ -1,31 +1,28 @@
-package com.example.VaschStore.Persons;
+package com.example.VaschStore.Humans;
 
 import com.example.VaschStore.Roles.Role;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "person")
-public class Person {
+public class Human {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String email;
     private String password;
-    private char isBanned;
 
     @ManyToOne(targetEntity = Role.class)
     private Role role;
 
-    public Person() {
+    public Human() {
     }
 
-    public Person(String name, String email, String password, char isBanned, Role role) {
+    public Human(String name, String email, String password, Role role) {
         this.name = name;
         this.email = email;
         this.password = password;
-        this.isBanned = isBanned;
         this.role = role;
     }
 
@@ -61,14 +58,6 @@ public class Person {
         this.password = password;
     }
 
-    public char isBanned() {
-        return isBanned;
-    }
-
-    public void setBanned(char banned) {
-        isBanned = banned;
-    }
-
     public Role getRole() {
         return role;
     }
@@ -79,12 +68,11 @@ public class Person {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "Human{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", isBanned=" + isBanned +
                 ", roleId=" + role +
                 '}';
     }
