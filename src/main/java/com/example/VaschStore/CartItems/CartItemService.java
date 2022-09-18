@@ -34,9 +34,10 @@ public class CartItemService {
         {
             CartItem cartItemDB = cartItemOptionalDB.get();
             cartItemDB.setQuantity(cartItemDB.getQuantity() + 1);
-            return cartItemRepository.update(
+            cartItemRepository.update(
                     cartItemDB.getQuantity(),
                     cartItemDB.getId());
+            return cartItemDB;
         }
         cartItem.setQuantity(1);
         return cartItemRepository.saveAndFlush(cartItem);

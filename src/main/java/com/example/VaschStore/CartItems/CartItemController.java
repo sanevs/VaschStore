@@ -2,6 +2,7 @@ package com.example.VaschStore.CartItems;
 
 import com.example.VaschStore.Carts.Cart;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,6 +25,8 @@ public class CartItemController {
     }
 
     @PostMapping(path = "add")
+    @ResponseBody
+    @ResponseStatus(HttpStatus.OK)
     public CartItem add(@RequestBody CartItem cartItem)
     {
         return cartItemService.add(cartItem);
