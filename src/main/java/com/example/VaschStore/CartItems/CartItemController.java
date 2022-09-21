@@ -2,9 +2,7 @@ package com.example.VaschStore.CartItems;
 
 import com.example.VaschStore.Carts.Cart;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @CrossOrigin(value = "http://localhost:3000")
@@ -26,18 +24,15 @@ public class CartItemController {
 
     @PostMapping(path = "add")
     @ResponseBody
-    @ResponseStatus(HttpStatus.OK)
     public CartItem add(@RequestBody CartItem cartItem)
     {
         return cartItemService.add(cartItem);
     }
 
     @PostMapping(path = "delete/{cartItemId}")
-    public void deleteById(@PathVariable Long cartItemId)
-    {
-        cartItemService.deleteById(cartItemId);
-    }
+    public void deleteById(@PathVariable Long cartItemId) { cartItemService.deleteById(cartItemId); }
 
+    @ResponseBody
     @PostMapping(path = "clearByCartId/{cartId}")
     public void clear(@PathVariable Long cartId)
     {

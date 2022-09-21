@@ -1,7 +1,6 @@
 package com.example.VaschStore.Humans;
 
 import com.example.VaschStore.Roles.Role;
-
 import javax.persistence.*;
 
 @Entity

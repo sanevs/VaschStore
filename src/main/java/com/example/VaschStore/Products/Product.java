@@ -1,8 +1,6 @@
 package com.example.VaschStore.Products;
 
 import com.example.VaschStore.Categories.Category;
-import com.example.VaschStore.Sizes.Size;
-
 import javax.persistence.*;
 
 @Entity
@@ -17,7 +15,6 @@ public class Product {
 
 
     @ManyToOne(targetEntity = Category.class)
-
     private Category category;
 
     public Product() {

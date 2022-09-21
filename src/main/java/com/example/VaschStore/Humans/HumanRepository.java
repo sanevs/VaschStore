@@ -8,9 +8,6 @@ import java.util.Optional;
 
 @Repository
 public interface HumanRepository extends JpaRepository<Human, Long> {
-    @Query(value = "SELECT * FROM Human h WHERE h.email = ?1 AND h.password = ?2", nativeQuery = true)
-    Optional<Human> findByEmailAndPassword(String userEmail, String userPassword);
-
     @Query(value = "SELECT * FROM Human h WHERE h.email = ?1", nativeQuery = true)
     Optional<Human> findByEmail(String humanEmail);
 }
